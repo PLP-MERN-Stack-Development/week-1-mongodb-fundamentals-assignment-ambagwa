@@ -1,4 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19715040&assignment_repo_type=AssignmentRepo)
+
 # MongoDB Fundamentals Assignment
 
 This assignment focuses on learning MongoDB fundamentals including setup, CRUD operations, advanced queries, aggregation pipelines, and indexing.
@@ -6,6 +7,7 @@ This assignment focuses on learning MongoDB fundamentals including setup, CRUD o
 ## Assignment Overview
 
 You will:
+
 1. Set up a MongoDB database
 2. Perform basic CRUD operations
 3. Write advanced queries with filtering, projection, and sorting
@@ -44,4 +46,37 @@ Your work will be automatically submitted when you push to your GitHub Classroom
 
 - [MongoDB Documentation](https://docs.mongodb.com/)
 - [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/)
+
+## Running queries
+
+1. Using MongoDB Shell (mongosh)
+
+```# Start the MongoDB shell
+mongosh
+
+# Connect to your database
+use plp_bookstore
+
+# Run queries directly (examples)
+db.books.find({ author: "J.R.R. Tolkien" })
+db.books.countDocuments({ genre: "Fiction" })
+
+```
+
+2. Using JS files
+
+- Create a .js file with your queries
+
+```
+    // query_books.js
+const results = db.books.find({ in_stock: true }).toArray()
+printjson(results)
+```
+
+- Run the file using mongosh
+
+```
+    mongosh query_books.js
+```
+
